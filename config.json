@@ -1,3 +1,5 @@
 {
-    "base_directory": "/var/www/html"
+    "base_directory": "/var/www/html",
+    "port": 8000,
+    "bind_ip": "localhost"
 }

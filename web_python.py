@@ -5,7 +5,9 @@ from urllib.parse import urlparse
 import json
 
 DEFAULT_CONFIG = {
-    "base_directory": "/var/www/html"
+    "base_directory": "/var/www/html",
+    "port": 8000,
+    "bind_ip": "localhost",
 }
 
 if(not os.path.exists('config.json')):
@@ -28,8 +30,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200);
         self.send_header('Content-type', 'text/html');
         self.end_headers();
-        self.wfile.write(subprocess.check_output(['python3', path, "none"]));
+        self.wfile.write(subprocess.check_output(['python3', path, parsed.query]));
 
-server = HTTPServer(('', 8000), Handler);
+server = HTTPServer((CONFIG['bind_ip'], int(CONFIG['port'])), Handler);
 server.serve_forever();
 
