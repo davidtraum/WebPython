@@ -11,3 +11,8 @@
  4. If you want to autostart the server you could, for example, add the command to your **/etc/rc.local** file.
  5. Test your server by adding a python file that prints something to your webserver directory and open the url in your browser    like http://myserver/test.py
  6. Optional: If you want to use the server as a **nginx proxy** have a look at the example configuration included in the repository.
+
+## More
+
+### Access the URL Parameters inside a script
+You can access the URL Parameters inside a script with sys.argv[1]. Have a look at the **args.py** example script.
