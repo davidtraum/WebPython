@@ -1,0 +1,6 @@
+#Insert this into your nginx configuration 
+#All Request ending with .py will be forwarded to the WebPython server.
+
+location ~ \.(py)$ {
+    proxy_pass "http://localhost:8000";
+} 
